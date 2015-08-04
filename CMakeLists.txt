@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 3.2)
+
+set(PROJECT_NAME "Parabolic Shogi")
+project(${PROJECT_NAME})
+
+set(CMAKE_BUILD_TYPE "DEBUG")
+set(CMAKE_INSTALL_PREFIX "./install")
+
+set(PROJECT_EXECUTABLE "parashogi")
+
+set(PROJECT_DIRECTORY "${CMAKE_SOURCE_DIR}")
+set(PROJECT_INCLUDE_DIRECTORIES "${PROJECT_DIRECTORY}")
+
+enable_language(CXX)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Og")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mtune=native")
+
+set(PROJECT_LIBRARIES "-lGL -lGLEW -lglfw -lpthread")
+file(GLOB CLIENT_FILES
+    "${PROJECT_DIRECTORY}/game/*.cpp"
+    "${PROJECT_DIRECTORY}/game/*.hpp"
+)
+
+add_executable(${PROJECT_EXECUTABLE} ${CLIENT_FILES})
+target_include_directories(${PROJECT_EXECUTABLE} PUBLIC ${PROJECT_DIRECTORY})
+target_include_directories(${PROJECT_EXECUTABLE} PUBLIC ${PROJECT_INCLUDE_DIRECTORIES})
+target_link_libraries(${PROJECT_EXECUTABLE} ${PROJECT_LIBRARIES})
+install(
+    TARGETS ${PROJECT_EXECUTABLE}
+    RUNTIME DESTINATION "."
+)
+
