@@ -1,8 +1,7 @@
 #include "board.hpp"
 
 shogi::board::board() {
-	//for (uint8_t i = 0; i < 8; i++) pieces.push_back({std::shared_ptr<shogi::piece>{new shogi::piece(shogi::piece_type::PAWN, shogi::alignment::HOME)}, {i, 1}});
-	//for (uint8_t i = 0; i < 8; i++) pieces.push_back({std::shared_ptr<shogi::piece>{new shogi::piece(shogi::piece_type::PAWN, shogi::alignment::AWAY)}, {i, 7}});
+
 }
 
 shogi::board::~board() {

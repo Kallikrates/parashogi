@@ -20,7 +20,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mtune=native")
 
-set(PROJECT_LIBRARIES "-lGL -lGLEW -lglfw -lpthread")
+set(PROJECT_LIBRARIES "-lGL -lGLEW -lglfw -lpthread -lpng")
 file(GLOB CLIENT_FILES
     "${PROJECT_DIRECTORY}/game/*.cpp"
     "${PROJECT_DIRECTORY}/game/*.hpp"
