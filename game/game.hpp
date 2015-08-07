@@ -4,11 +4,10 @@
 #include "board.hpp"
 
 namespace game {
-
-	extern shogi::board const * const & board;
 	void init();
 	void reset();
-
+	void set_board_lock(bool lock);
+	std::vector<shogi::piece_placement> const & get_pieces();
 }
 
 #endif //GAME_HPP

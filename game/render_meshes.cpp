@@ -42,3 +42,14 @@ void render::mesh::draw_board() {
 	glBindVertexArray(board_vao);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
+
+void render::mesh::draw_piece() {
+	glBindVertexArray(board_vao);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
+
+void render::mesh::draw_fullquad() {
+	glBindVertexArray(board_vao);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}

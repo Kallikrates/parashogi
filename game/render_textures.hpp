@@ -6,8 +6,8 @@
 namespace render {
 namespace texture {
 	bool init();
-	void bind_board(int binding);
-	void bind_piece_pawn(int binding);
+	void bind_board();
+	void bind_piece_pawn();
 }}
 
 #endif //RENDER_TEXTURES_HPP

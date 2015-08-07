@@ -33,9 +33,9 @@ bool render::texture::load_png(GLuint & handle, const char *path) {
 	png_read_image(pngp, rowp);
 
 	glCreateTextures(GL_TEXTURE_2D, 1, &handle);
-	glTextureParameteri(handle, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTextureParameteri(handle, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTextureStorage2D(handle, 1, GL_RGB32F, width, height);
+	glTextureParameteri(handle, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTextureParameteri(handle, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTextureStorage2D(handle, 1, color_type == PNG_COLOR_TYPE_RGB ? GL_RGB32F : GL_RGBA32F, width, height);
 	for (GLsizei i = 0; i < height; i++) glTextureSubImage2D(handle, 0, 0, i, width, 1, color_type == PNG_COLOR_TYPE_RGB ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, rowp[height-i-1]);
 
 	for (int i = 0; i < height; i++) delete [] rowp[i];

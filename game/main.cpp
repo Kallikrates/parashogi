@@ -9,7 +9,7 @@
 static GLFWwindow * window_actual;
 GLFWwindow * const & window = window_actual;
 
-std::atomic_int req_width {512}, req_height {512};
+std::atomic_int req_width {1024}, req_height {1024};
 
 static void gl_resize(GLFWwindow * window, int w, int h) {
 	req_width = w;
